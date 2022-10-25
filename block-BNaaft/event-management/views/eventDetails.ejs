@@ -1,6 +1,6 @@
 <% include partials/header %>
 <div class="container">
-  <div>
+  <div class="event-info">
     <h2 class="sub-header"><%= event.title %></h2>
     <h3 >Summary: <%= event.summary %></h3>
     <p>Host: <%= event.host %></p>
@@ -8,7 +8,7 @@
     <p>End: <%= event.end_date %></p>
     <p>Event Category: <%= event.category %></p>
     <p>Location: <%= event.location %></p>
-    <div class="">
+    <div>
       <p>Likes: <%= event.likes %></p>
       <a href="/events/<%= event.id %>/inc">
         <button class="like">Likes</button>
