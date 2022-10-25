@@ -1,0 +1,26 @@
+<% include partials/header%>
+
+<main>
+<div class="margin">
+  <h2>List of Events</h2>
+  <hr>
+<div>
+  <div class="flex jc-between ai-start">
+    <div class="flex-60">
+      <% events.forEach(event => { %>
+      <section class="ent-lst">
+        <h2><%= event.title %></h2>
+        <div class="flex jc-between">
+          <p><%= event.summary.substr(0, 100) + "..." %></p>
+          <a href="/events/<%= event._id %>">
+            <button class="btn">Show</button>
+          </a>
+        </div>
+      </section>
+      <hr>
+      <% }) %>
+    </div>
+    <hr>
+</main>
+</div>
+<% include partials/footer%>

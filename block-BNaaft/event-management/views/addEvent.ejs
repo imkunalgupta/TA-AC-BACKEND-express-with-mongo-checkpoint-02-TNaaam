@@ -1,0 +1,19 @@
+<% include partials/header%>
+<main>
+  <div class="flex-30">
+    <form action="/events" method="post">
+      <h3 class="txt-center">Add Event Details</h3>
+      <input type="text" name="title" placeholder="Enter Title" />
+      <textarea name="summary" rows="4" placeholder="Summary"></textarea>
+      <input type="text" name="host" placeholder="Enter Host" />
+      <input type="date" name="start_date" placeholder="Start Date" />
+      <input type="date" name="end_date" placeholder="End Date" />
+      <input type="text" name="category" placeholder="Event Category" />
+      <input type="text" name="location" placeholder="Location" />
+      <input type="number" name="likes" placeholder="Likes" />
+      <button>Submit Details</button>
+    </form>
+  </div>
+</main>
+
+<% include partials/footer%>
