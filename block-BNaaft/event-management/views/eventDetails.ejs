@@ -1,0 +1,64 @@
+<% include partials/header %>
+<div class="container">
+  <div>
+    <h2 class="sub-header"><%= event.title %></h2>
+    <h3 >Summary: <%= event.summary %></h3>
+    <p>Host: <%= event.host %></p>
+    <p>Start: <%= event.start_date %></p>
+    <p>End: <%= event.end_date %></p>
+    <p>Event Category: <%= event.category %></p>
+    <p>Location: <%= event.location %></p>
+    <div class="">
+      <p>Likes: <%= event.likes %></p>
+      <a href="/events/<%= event.id %>/inc">
+        <button class="like">Likes</button>
+      </a>
+    </div>
+  </div>
+  <div class="">
+    <a href="/events/<%= event.id %>/edit">
+      <button class="update">Update</button>
+    </a>
+    <a href="/events/<%= event.id %>/delete">
+      <button class="delete">Delete</button>
+    </a>
+    <hr>
+  </div>
+  <h2 class="sub-header">Give your Feedback</h2>
+  <div>
+    <div class="">
+      <form action="/events/<%= event.id %>/remarks" method="post">
+        <textarea name="remark" rows="3" placeholder="Add Remark"></textarea>
+        <input type="text" name="client" placeholder="Client" />
+        <input type="number" name="likes" placeholder="Likes" />
+        <input type="submit" value="Add Remark" />
+      </form>
+    </div>
+    <div class="flex-60">
+      <h2 class="sub-header">Remarks</h2>
+      <hr />
+      <% event.remarks.forEach(c => { %>
+      <div class="flex jc-between">
+        <p>Remark: <%= c.remark %></p>
+        <div class="flex">
+          <p>Likes: <%= c.likes %></p>
+          <a href="/remarks/<%= c.id %>/inc">
+            <button class="like">Likes</button>
+          </a>
+        </div>
+      </div>
+      <div>
+        <a href="/remarks/<%= c.id %>/edit">
+          <button class="update">Edit</button>
+        </a>
+        <a href="/remarks/<%= c.id %>/delete">
+          <button class="delete">Delete</button>
+        </a>
+      </div>
+      <hr />
+      <% }) %>
+    </div>
+  </div>
+  </div>
+  <% include partials/footer %>
+</div>
